@@ -27,7 +27,10 @@ brand/
 │   ├── mark-mono.svg      single-colour mark (currentColor only)
 │   ├── wordmark.svg       HOOPSLAB, Anton converted to outlines (no font dep)
 │   ├── lockup-horizontal.svg
-│   └── lockup-stacked.svg
+│   ├── lockup-stacked.svg
+│   └── png/               PNG exports of every asset, light and on-dark
+├── tools/
+│   └── export-png.py      regenerates logo/png from the SVGs
 └── presets/
     └── hoopslab.json      dashboard brand.json preset: HoopsLab
 ```
@@ -187,6 +190,14 @@ than eyeballed. Both lockups embed the same path geometry.
 Regenerating it (after a tracking or wording change) means re-running the
 outline conversion against `fonts/Anton-Regular.ttf` rather than editing path
 data by hand.
+
+**PNG exports.** `logo/png/` carries raster versions of every asset for the
+places vector art cannot go — social avatars, some slide tools, print
+workflows. Because `currentColor` cannot survive a PNG, each asset is exported
+in two inks: the default for light backgrounds and `-on-dark` for dark ones.
+All are RGBA with transparent backgrounds. Prefer the SVG anywhere it is
+supported, and regenerate the rasters with `python tools/export-png.py` after
+any change to the vectors — never edit a PNG by hand.
 
 ## Licensing
 
