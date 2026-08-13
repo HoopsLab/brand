@@ -1,0 +1,29 @@
+HoopsLab brand assets
+=====================
+
+Documentation, colour tokens and guidelines in this repository are
+licensed under the Creative Commons Attribution 4.0 International
+licence (CC BY 4.0). The full legal code is at:
+
+    https://creativecommons.org/licenses/by/4.0/legalcode
+
+You are free to share and adapt this material, including commercially,
+provided you give appropriate credit.
+
+Two carve-outs
+--------------
+
+1. TRADEMARK. The HoopsLab name, the HoopsLab mark and the wordmark are
+   trademark-adjacent. The licence above covers copying the files; it
+   does not grant permission to present a fork, product or service as
+   being HoopsLab, endorsed by HoopsLab, or affiliated with it. Use the
+   marks to refer to HoopsLab; do not use them to label something that
+   is not.
+
+2. TYPEFACES. The fonts in fonts/ (Anton, Barlow) are not ours. They are
+   licensed under the SIL Open Font License 1.1 by their respective
+   authors — see fonts/OFL-Anton.txt and fonts/OFL-Barlow.txt, which
+   travel with the files and govern their use.
+
+The source code in other HoopsLab repositories is MIT licensed; that is
+a separate grant and is stated in each repository.

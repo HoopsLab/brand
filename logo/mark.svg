@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="hl-mark-title">
+  <title id="hl-mark-title">HoopsLab mark</title>
+  <!--
+    Ball-as-instrument: a basketball whose seams double as a reticle.
+    64-unit grid. Ring + seams in currentColor; the centre reading point
+    carries the brand accent so the mark inverts cleanly on any theme.
+  -->
+  <g fill="none" stroke="currentColor" stroke-width="4">
+    <!-- ball / outer ring -->
+    <circle cx="32" cy="32" r="26"/>
+    <!-- straight seams as crosshair, broken at centre (reticle gap) -->
+    <path d="M6 32 H23"/>
+    <path d="M41 32 H58"/>
+    <path d="M32 6 V23"/>
+    <path d="M32 41 V58"/>
+    <!-- curved side seams, bowing toward centre -->
+    <path d="M13.6 13.6 C21.5 23 21.5 41 13.6 50.4"/>
+    <path d="M50.4 13.6 C42.5 23 42.5 41 50.4 50.4"/>
+  </g>
+  <!-- centre reading point: brand accent -->
+  <circle cx="32" cy="32" r="4.5" fill="#ff7a33"/>
+</svg>

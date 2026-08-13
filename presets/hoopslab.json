@@ -1,0 +1,15 @@
+{
+  "name": "HoopsLab",
+  "sub": "shot lab",
+  "tagline": "measure what the camera can see",
+  "mark": "🎯",
+  "accents": {
+    "dark": ["#ff7a33", "#40e0d0"],
+    "light": ["#e8641e", "#0aa295"]
+  },
+  "footer": "measured by shotlab · unmeasurable clips are flagged, not graded",
+  "source": {
+    "label": "HoopsLab",
+    "url": "https://github.com/hoopslab"
+  }
+}

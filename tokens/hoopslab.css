@@ -1,0 +1,150 @@
+/*
+ * HoopsLab design tokens — CSS custom properties
+ *
+ * Dark-first, three-state theming contract:
+ *
+ *   1. Bare `:root`                                  -> dark (the default look)
+ *   2. `@media (prefers-color-scheme: light)`
+ *      guarded as `:root:not([data-theme="dark"])`   -> light for OS-light users
+ *      who have NOT manually forced dark
+ *   3. `:root[data-theme="light"]`                   -> light when manually forced
+ *
+ * All three blocks are required. Dropping block 2's guard means a manual
+ * dark toggle loses to the OS on light machines; dropping block 3 means a
+ * manual light toggle loses to the OS on dark machines. See README.md.
+ *
+ * Usage:  @import "hoopslab.css";  then reference var(--token).
+ * A manual toggle sets data-theme="light" | "dark" on <html>, or removes
+ * the attribute to return to following the OS.
+ */
+
+/* 1 ── Dark: the base theme. Never wrap these in a media query. */
+:root {
+  color-scheme: dark;
+
+  /* surfaces */
+  --page: #0a0c12;
+  --surface: rgba(26, 29, 40, 0.72);
+  --surface-solid: #191c27;
+  --court: #0c0f16;
+
+  /* text */
+  --ink: #f4f5f9;
+  --ink-2: #c0c4d2;
+  --muted: #8b90a3;
+
+  /* lines */
+  --grid: rgba(255, 255, 255, 0.07);
+  --baseline: rgba(255, 255, 255, 0.16);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-hot: rgba(255, 138, 62, 0.55);
+
+  /* brand accents */
+  --accent: #ff7a33;
+  --accent-2: #40e0d0;
+
+  /* chart series — CVD-validated set; never substitute brand accents */
+  --series-1: #3987e5;
+  --series-2: #ff7a33;
+  --series-3: #1fbf85;
+
+  /* status — always paired with a letter/label, never hue alone */
+  --good: #17b34a;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #e04545;
+  --delta-good: #2ad463;
+
+  /* fills and effects */
+  --band: rgba(57, 135, 229, 0.14);
+  --hero-grad: linear-gradient(100deg, #ff8a3e 10%, #ffb35c 55%, #ffd28a 95%);
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  --page-glow-1: rgba(232, 119, 46, 0.09);
+  --page-glow-2: rgba(64, 224, 208, 0.06);
+
+  /* typography */
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-body: "Barlow", system-ui, sans-serif;
+  --font-label: "Barlow Semi Condensed", "Barlow", system-ui, sans-serif;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600; /* labels/eyebrows only (Barlow SemiCondensed) */
+  --weight-bold: 700;
+  --track-label: 0.05em; /* labels/eyebrows, uppercase; keep within .04–.06em */
+
+  /* spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 999px;
+}
+
+/* 2 ── Light for OS-light users, unless the user has forced dark.
+ *      The :not([data-theme="dark"]) guard is what lets the manual dark
+ *      toggle win on a light machine. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+
+    --page: #f6f5f1;
+    --surface: rgba(255, 255, 255, 0.82);
+    --surface-solid: #ffffff;
+    --ink: #12141c;
+    --ink-2: #464b5c;
+    --muted: #7d8194;
+    --grid: rgba(18, 20, 28, 0.08);
+    --baseline: rgba(18, 20, 28, 0.22);
+    --border: rgba(18, 20, 28, 0.10);
+    --border-hot: rgba(232, 104, 32, 0.5);
+    --accent: #e8641e;
+    --accent-2: #0aa295;
+    --series-1: #2a78d6;
+    --series-2: #e8641e;
+    --series-3: #0f9d69;
+    --delta-good: #0c7a30;
+    --band: rgba(42, 120, 214, 0.10);
+    --hero-grad: linear-gradient(100deg, #e8641e 10%, #f08c2e 60%, #d9a12c 95%);
+    --shadow: 0 12px 32px rgba(30, 34, 48, 0.10);
+    --page-glow-1: rgba(232, 119, 46, 0.10);
+    --page-glow-2: rgba(27, 175, 122, 0.06);
+  }
+}
+
+/* 3 ── Light when manually forced. Must repeat block 2's overrides so the
+ *      toggle also wins on a dark machine (the media query above will not
+ *      match there). Keep blocks 2 and 3 identical. */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --page: #f6f5f1;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-solid: #ffffff;
+  --ink: #12141c;
+  --ink-2: #464b5c;
+  --muted: #7d8194;
+  --grid: rgba(18, 20, 28, 0.08);
+  --baseline: rgba(18, 20, 28, 0.22);
+  --border: rgba(18, 20, 28, 0.10);
+  --border-hot: rgba(232, 104, 32, 0.5);
+  --accent: #e8641e;
+  --accent-2: #0aa295;
+  --series-1: #2a78d6;
+  --series-2: #e8641e;
+  --series-3: #0f9d69;
+  --delta-good: #0c7a30;
+  --band: rgba(42, 120, 214, 0.10);
+  --hero-grad: linear-gradient(100deg, #e8641e 10%, #f08c2e 60%, #d9a12c 95%);
+  --shadow: 0 12px 32px rgba(30, 34, 48, 0.10);
+  --page-glow-1: rgba(232, 119, 46, 0.10);
+  --page-glow-2: rgba(27, 175, 122, 0.06);
+}
